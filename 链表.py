@@ -8,8 +8,7 @@ class Node(object):
 
 # 定义链表类
 class LinkedList(object):
-
-	#初始化链表
+    #初始化链表
     def __init__(self):
         self.head = None # 头指针指向 None，空表
         self.length = 0 #表长度为零
@@ -18,9 +17,20 @@ class LinkedList(object):
     def isEmpty(self):
         return self.length == 0
 
+    # 遍历链表
+    def traverse(self):
+        if self.isEmpty():
+            print('空表，无法遍历')
+            return False
+
+        pre = self.head
+        while pre:
+            print(pre.data)
+            pre = pre._next
+
     # 链表添加元素
     def append(self, data):
-        item = Node(data)	# 初始化节点
+        item = Node(data)   # 初始化节点
 
         # 没有头结点，直接插在头指针后
         if not self.head:
@@ -38,7 +48,7 @@ class LinkedList(object):
     # 删除元素
     def delete(self, index):
         if self.isEmpty(): # 空表无法删除
-        	print('空表，无法删除元素！')
+            print('空表，无法删除元素！')
             return False
 
         if index < 0 or index >= self.length:
@@ -60,7 +70,7 @@ class LinkedList(object):
     # 插入元素
     def insert(self, index, data):
         if self.isEmpty():
-        	return False
+            return False
 
         if index < 0 or index >= self.length:
             return False
@@ -118,8 +128,9 @@ class LinkedList(object):
         self.head = None
         self.length = 0
 
-
-
-
-
-		
+l = LinkedList()
+l.append(1)
+l.append(2)
+l.append(3)
+l.insert(2,77)
+l.traverse()
