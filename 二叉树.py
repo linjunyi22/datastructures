@@ -54,17 +54,17 @@ class Tree(object):
 		if root == None:
 			return '空树，请先创建一个树'
 
-		self.front_recursion(root.left)
+		self.middle_recursion(root.left)
 		print(root.data, end=' ')
-		self.front_recursion(root.right)
+		self.middle_recursion(root.right)
 
 	# 递归实现后序遍历
 	def last_recursion(self,root):
 		if root == None:
 			return '空树，请先创建一个树'
 
-		self.front_recursion(root.left)
-		self.front_recursion(root.right)
+		self.last_recursion(root.left)
+		self.last_recursion(root.right)
 		print(root.data, end=' ')
 
 	# 队列层次遍历
